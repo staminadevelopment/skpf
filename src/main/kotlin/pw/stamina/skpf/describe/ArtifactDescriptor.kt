@@ -1,4 +1,4 @@
-package pw.stamina.skpf
+package pw.stamina.skpf.describe
 
 import com.github.zafarkhaja.semver.Version
 
