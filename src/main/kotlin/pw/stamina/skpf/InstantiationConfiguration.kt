@@ -16,5 +16,5 @@ class InstantiationConfiguration(
          * to instantiate the plugin. If none is specified
          * a default strategy should be used.
          */
-        val strategy: String? = null
+        val strategy: String?
 )

@@ -8,7 +8,7 @@ class Dependency(
 
     val artifactId: String,
 
-    val version: Expression,
+    val versionMatcher: Expression?,
 
-    val optional: Boolean = false
+    val optional: Boolean
 )
