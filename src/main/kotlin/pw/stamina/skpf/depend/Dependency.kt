@@ -10,5 +10,5 @@ class Dependency(
 
     val version: Expression,
 
-    val optional: Boolean
+    val optional: Boolean = false
 )
