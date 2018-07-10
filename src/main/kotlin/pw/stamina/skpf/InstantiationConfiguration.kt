@@ -1,10 +1,10 @@
-package pw.stamina.skpf.describe
+package pw.stamina.skpf
 
 /**
  * Provides the information necessary for instantiation of
  * the plugin.
  */
-class InstantiationDescriptor(
+class InstantiationConfiguration(
         /**
          * The fully qualified name of the class to be used
          * when instantiating the plugin.
