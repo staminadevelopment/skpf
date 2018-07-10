@@ -11,8 +11,12 @@ repositories {
     mavenCentral()
 }
 
+val java_semver_version = "0.9.0"
+
 dependencies {
     compile(kotlin("stdlib-jdk8"))
+
+    implementation("com.github.zafarkhaja:java-semver:$java_semver_version")
 }
 
 tasks.withType<KotlinCompile> {
