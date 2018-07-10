@@ -24,5 +24,5 @@ class ArtifactDescriptor(
         /**
          * An optional friendly name for the plugin.
          */
-        val name: String?
+        val name: String? = null
 )
