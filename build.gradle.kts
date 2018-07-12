@@ -12,11 +12,15 @@ repositories {
 }
 
 val java_semver_version = "0.9.0"
+val junit_jupiter_version = "5.2.0"
 
 dependencies {
     compile(kotlin("stdlib-jdk8"))
 
     implementation("com.github.zafarkhaja:java-semver:$java_semver_version")
+
+    testCompile("org.junit.jupiter:junit-jupiter-api:$junit_jupiter_version")
+    testCompile("org.junit.jupiter:junit-jupiter-engine:$junit_jupiter_version")
 
     implementation("javax.inject:javax.inject:1")
 }
