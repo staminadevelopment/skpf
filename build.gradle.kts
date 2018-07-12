@@ -17,6 +17,8 @@ dependencies {
     compile(kotlin("stdlib-jdk8"))
 
     implementation("com.github.zafarkhaja:java-semver:$java_semver_version")
+
+    implementation("javax.inject:javax.inject:1")
 }
 
 tasks.withType<KotlinCompile> {
