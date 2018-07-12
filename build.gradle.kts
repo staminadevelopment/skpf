@@ -13,6 +13,8 @@ repositories {
 }
 
 val java_semver_version = "0.9.0"
+val result_version = "1.4.0"
+
 val junit_jupiter_version = "5.2.0"
 val mockK_version = "1.8.5"
 
@@ -22,7 +24,7 @@ dependencies {
     implementation("com.github.zafarkhaja:java-semver:$java_semver_version")
 
     implementation("javax.inject:javax.inject:1")
-    implementation("com.github.kittinunf.result:result:1.4.0")
+    implementation("com.github.kittinunf.result:result:$result_version")
 
     // Testing dependencies
 
