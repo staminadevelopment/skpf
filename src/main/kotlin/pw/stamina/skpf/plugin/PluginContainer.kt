@@ -1,10 +1,10 @@
-package pw.stamina.skpf
+package pw.stamina.skpf.plugin
 
 import pw.stamina.skpf.describe.PluginDescriptor
 
 interface PluginContainer {
 
-    val plugin: Any
+    val plugin: Plugin
     val descriptor: PluginDescriptor
 
     val loaded: Boolean
