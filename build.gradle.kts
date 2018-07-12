@@ -20,6 +20,7 @@ val mockK_version = "1.8.5"
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("reflect"))
 
     implementation("com.github.zafarkhaja:java-semver:$java_semver_version")
     implementation("com.github.kittinunf.result:result:$result_version")
