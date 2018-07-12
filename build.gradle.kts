@@ -9,6 +9,7 @@ version = "1.0.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 val java_semver_version = "0.9.0"
@@ -21,6 +22,7 @@ dependencies {
     implementation("com.github.zafarkhaja:java-semver:$java_semver_version")
 
     implementation("javax.inject:javax.inject:1")
+    implementation("com.github.kittinunf.result:result:1.4.0")
 
     // Testing dependencies
 
