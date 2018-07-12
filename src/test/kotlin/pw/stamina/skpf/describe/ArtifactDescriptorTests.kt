@@ -15,7 +15,7 @@ class ArtifactDescriptorTests {
 
     @Test
     @DisplayName("toString() -> \"groupId:artifactId:version\"")
-    fun toString_shouldPrintFormattedArtifactInformation() {
+    fun toString_shouldReturnFormattedArtifactInformation() {
         assertEquals("$groupId:$artifactId:$version", descriptor.toString())
     }
 }

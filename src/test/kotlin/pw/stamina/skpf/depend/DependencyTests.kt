@@ -5,8 +5,7 @@ import com.github.zafarkhaja.semver.expr.Expression
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import pw.stamina.skpf.describe.ArtifactDescriptor
@@ -20,7 +19,7 @@ class DependencyTests {
     private val artifact = ArtifactDescriptor(groupId, artifactId, version)
 
     @Test
-    fun matches_withVersionMatcher_shouldMatchArtifactIdentifiersAndMatchVersion() {
+    fun matches_withVersionMatcherAndMatchingIdentifiers_shouldReturnTrueAndCheckArtifactVersion() {
         val versionMatcher = mockk<Expression>()
         every { versionMatcher.interpret(version) } returns true
 
@@ -31,15 +30,29 @@ class DependencyTests {
     }
 
     @Test
-    fun matches_outwithVersionMatcher_shouldMatchArtifactIdentifiersOnly() {
+    fun matches_outwithVersionMatcherAndMatchingIdentifiers_shouldReturnTrue() {
         val dependency = Dependency(groupId, artifactId, null)
 
         assertTrue(dependency.matches(artifact))
     }
 
     @Test
+    fun matches_withMismatchingGroupId_shouldReturnFalse() {
+        val dependency = Dependency("_", artifactId, null)
+
+        assertFalse(dependency.matches(artifact))
+    }
+
+    @Test
+    fun matches_withMismatchingArtifactId_shouldReturnFalse() {
+        val dependency = Dependency(groupId, "_", null)
+
+        assertFalse(dependency.matches(artifact))
+    }
+
+    @Test
     @DisplayName("toString() -> \"groupId:artifactId\"")
-    fun toString_shouldPrintFormattedDependencyTargetInformation() {
+    fun toString_shouldReturnFormattedDependencyTargetInformation() {
         val dependency = Dependency(groupId, artifactId, null)
 
         assertEquals("$groupId:$artifactId", dependency.toString())
