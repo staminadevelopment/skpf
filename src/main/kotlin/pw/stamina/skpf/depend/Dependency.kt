@@ -9,18 +9,18 @@ class Dependency(
          * The identifier of the group the dependency
          * belongs to.
          */
-        val groupId: String,
+        private val groupId: String,
 
         /**
          * The artifact identifier of the dependency.
          */
-        val artifactId: String,
+        private val artifactId: String,
 
         /**
          * An optional version matcher, for targeting
          * only specific versions of the dependency.
          */
-        val versionMatcher: Expression?,
+        private val versionMatcher: Expression?,
 
         /**
          * Indicates if the dependency is in not required
@@ -43,4 +43,6 @@ class Dependency(
      * `true` if no version matcher has been specified.
      */
     private fun matchVersion(version: Version) = versionMatcher?.interpret(version) ?: true
+
+    override fun toString() = "$groupId:$artifactId"
 }
