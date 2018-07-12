@@ -9,12 +9,12 @@ class Dependency(
          * The identifier of the group the dependency
          * belongs to.
          */
-        private val groupId: String,
+        val groupId: String,
 
         /**
          * The artifact identifier of the dependency.
          */
-        private val artifactId: String,
+        val artifactId: String,
 
         /**
          * An optional version matcher, for targeting
@@ -26,15 +26,15 @@ class Dependency(
          * Indicates if the dependency is in not required
          * for the dependant to function.
          */
-        val optional: Boolean) {
+        val optional: Boolean = false) {
 
     /**
      * Checks if the [artifact] descriptor matches the
      * target of this dependency.
      */
     fun matches(artifact: ArtifactDescriptor) =
-            groupId != artifact.groupId
-         && artifactId != artifact.artifactId
+            groupId == artifact.groupId
+         && artifactId == artifact.artifactId
          && matchVersion(artifact.version)
 
     /**
@@ -42,7 +42,7 @@ class Dependency(
      * of this dependency. This function always returns
      * `true` if no version matcher has been specified.
      */
-    private fun matchVersion(version: Version) = versionMatcher?.interpret(version) ?: true
+    private fun matchVersion(version: Version) = versionMatcher?.let(version::satisfies) ?: true
 
     override fun toString() = "$groupId:$artifactId"
 }

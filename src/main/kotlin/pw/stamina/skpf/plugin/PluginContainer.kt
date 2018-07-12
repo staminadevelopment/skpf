@@ -7,7 +7,7 @@ interface PluginContainer {
     val plugin: Plugin
     val descriptor: PluginDescriptor
 
-    val loaded: Boolean
+    fun isLoaded(): Boolean
 
     fun load()
     fun unload()
