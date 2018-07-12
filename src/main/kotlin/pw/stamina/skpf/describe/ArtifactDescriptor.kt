@@ -5,7 +5,7 @@ import com.github.zafarkhaja.semver.Version
 /**
  * Provides the identifiable information about the plugin.
  */
-class ArtifactDescriptor(
+data class ArtifactDescriptor(
         /**
          * The identifier of the group the plugin belongs to.
          */
@@ -24,5 +24,9 @@ class ArtifactDescriptor(
         /**
          * An optional friendly name for the plugin.
          */
-        val name: String?
-)
+        val name: String?) {
+
+    override fun toString(): String {
+        return "$groupId:$artifactId:$version"
+    }
+}
