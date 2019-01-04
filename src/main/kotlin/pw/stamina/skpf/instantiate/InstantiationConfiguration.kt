@@ -1,4 +1,4 @@
-package pw.stamina.skpf
+package pw.stamina.skpf.instantiate
 
 /**
  * Provides the information necessary for instantiation of
